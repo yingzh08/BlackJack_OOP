@@ -15,9 +15,9 @@ class CardDeck:
         shuffle_deck = shuffle the current 54 card deck'''
     
     # Object attributes
-    def __init__(self,deck=list(), deckID = ''):
-        self.deck = deck
-        self.deckID = deckID
+    def __init__(self):
+        self.deck = []
+        self.deckID = ''
     
     # Methods for creating a new card deck
     def new_deck(self):
@@ -25,12 +25,10 @@ class CardDeck:
         '''
         # create new card deck
         deck_unique = ['A',2,3,4,5,6,7,8,9,10,'J','Q','K']
-        deck = list()
         for item in deck_unique:
             for num in range(0,4):
-                deck.append(item)
-        random.shuffle(deck)
-        self.deck = deck
+                self.deck.append(item)
+        random.shuffle(self.deck)
 
         # generate a 4-digit deck ID
         for num in range(0,4):

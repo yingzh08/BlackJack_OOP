@@ -17,10 +17,10 @@ class PlayersHand():
     """
 
     # Object attributes
-    def __init__(self, current_hand = list(), points = 0, bust = False):
-        self.current_hand = current_hand
-        self.points = points
-        self.bust = bust
+    def __init__(self):
+        self.current_hand = []
+        self.points = 0
+        self.bust = False
 
     # Methods
     def deal_cards(self,deck):
