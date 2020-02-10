@@ -7,7 +7,7 @@ class CardDeck:
     '''Create an instance of a card deck.
     
     Attributes: 
-        deck: shows the list of cards in the deck
+        deck: list of cards in an instance of card deck
         deckID: shows a 4-digit ID of the current deck being played. 
     
     Methods:
@@ -18,11 +18,7 @@ class CardDeck:
     def __init__(self):
         self.deck = []
         self.deckID = ''
-    
-    # Methods for creating a new card deck
-    def new_deck(self):
-        '''create a new 52 card deck. Attach an unique ID to this deck.
-        '''
+
         # create new card deck
         deck_unique = ['A',2,3,4,5,6,7,8,9,10,'J','Q','K']
         for item in deck_unique:
@@ -31,15 +27,17 @@ class CardDeck:
         random.shuffle(self.deck)
 
         # generate a 4-digit deck ID
-        for num in range(0,4):
-            self.deckID += str(random.randint(1,9))
-
+        self.deckID = str(random.randint(1000,9999))
         print(f"New deck created. The current deck's ID is {self.deckID}.")
             
-    def shuffle_deck(self):
+    def shuffle(self):
         '''Take in an existing deck of cards. reshuffle them upon request. 
         Operations will be done on the existing deck of cards. no new deck will be created.
     
         '''
         random.shuffle(self.deck)
         print('Deck shuffled.')
+        
+    def __str__(self):
+        '''print the Card Deck object.'''
+        return f"The current Deck ID is {self.deckID}. The current number of cards in the deck is: {len(self.deck)}."
